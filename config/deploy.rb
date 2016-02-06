@@ -9,7 +9,7 @@ require 'io/console'
   require "#{File.join(__dir__, 'recipes', "#{pkg}")}"
 end
 
-set :application, 'kakaduheaderlabs'
+set :application, 'hello_app'
 set :user, set_user
 set :deploy_to, "/home/#{user}/#{application}"
 
