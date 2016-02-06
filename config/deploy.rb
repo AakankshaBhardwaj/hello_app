@@ -38,9 +38,6 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/tmp/pids"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/tmp/pids"]
 
-  queue! %[mkdir -p  "#{deploy_to}/#{shared_path}/photofy"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/photofy"]
-
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   invoke :setup_prerequesties
   invoke :setup_yml
