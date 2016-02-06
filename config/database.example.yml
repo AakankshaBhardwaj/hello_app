@@ -58,3 +58,10 @@ staging:
   database: hello_staging
   username: root
   password: Welocme@123
+
+
+development:
+  <<: *default
+  database: hello_staging
+  username: root
+  password: headerlabs
