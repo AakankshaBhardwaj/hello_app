@@ -13,14 +13,11 @@ set :application, 'kakaduheaderlabs'
 set :user, set_user
 set :deploy_to, "/home/#{user}/#{application}"
 
-# set :assembla_username, "nirupmasinha"
-# set :assembla_password, "Welcome%40123"
 
-
-set :repository, "https://#{assembla_username}:#{assembla_password}@git.assembla.com/papayaheaderlabs.Kakadu.git"
+set :repository, "https://github.com/AakankshaBhardwaj/hello_app"
 set :branch, set_branch
 
-set :shared_paths, ['config/database.yml', 'config/memcache_settings.yml', 'log', 'photofy', 'config/layer_configs.yml']
+set :shared_paths, ['config/database.yml']
 set :ruby_version, "#{File.readlines(File.join(__dir__, '..', '.ruby-version')).first.strip}"
 set :gemset, "#{File.readlines(File.join(__dir__, '..', '.ruby-gemset')).first.strip}"
 
@@ -111,9 +108,6 @@ task :deploy => :environment do
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
   end
-  to :launch do
-    invoke :'photofy:symlink'
-  end
   invoke :restart
 end
 
@@ -132,5 +126,4 @@ task :restart => :environment do
   queue 'echo "-----> Start Passenger"'
   queue! %[mkdir -p #{File.join(current_path, 'tmp')}]
   queue! %[touch #{File.join(current_path, 'tmp', 'restart.txt')}]
-  invoke :'product_deployment_sheet:update'
 end
