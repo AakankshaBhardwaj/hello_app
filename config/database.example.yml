@@ -51,10 +51,10 @@ production:
   <<: *default
   database: hello_production
   username: root
-  password: 'Welcome@123'
+  password: Welcome@123
 
 staging:
   <<: *default
   database: hello_staging
   username: root
-  password: 'Welocme@123'
+  password: Welocme@123
