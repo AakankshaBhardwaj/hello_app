@@ -59,9 +59,14 @@ staging:
   username: root
   password: Welcome@123
 
-
 development:
-  <<: *default
-  database: hello_staging
-  username: root
-  password: headerlabs
+    <<: *default
+    database: hello_staging
+    username: root
+    password: headerlabs
+    
+test:
+    <<: *default
+    database: hello_test
+    username: root
+    password: headerlabs
