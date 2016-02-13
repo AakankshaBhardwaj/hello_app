@@ -51,7 +51,7 @@ production:
   <<: *default
   database: hello_production
   username: root
-  password: Welcome@123
+  password: password
 
 staging:
   <<: *default
